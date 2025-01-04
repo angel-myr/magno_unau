@@ -2,6 +2,9 @@ package org.example;
 
 import data.Conexion;
 import data.ContenidoDAO;
+import vista.Inicio;
+
+import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -16,5 +19,19 @@ public class Main {
         System.out.println(result);
         prueba.desconectar();
         System.out.println("Hola LeonDeidad");
+
+        SwingUtilities.invokeLater(() -> {
+            JFrame frame = new JFrame("------> magno_unou <------");
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+            var inicio = new Inicio();
+            frame.setContentPane(inicio.getPanel1());
+
+            frame.pack();
+            frame.setSize(720, 480);
+            frame.setLocationRelativeTo(null);
+            frame.setVisible(true);
+
+        });
     }
 }
